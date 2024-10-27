@@ -1,9 +1,9 @@
 export function renderImages(images) {
   const markup = images
     .map(image => {
+      console.log('img', image);
       return `
-  <li class="gallery-item">
-  <a class="gallery-link" href="${image.largeImageURL}">
+   <a class="gallery-link" href="${image.largeImageURL}">
     <img
       class="gallery-image"
       src="${image.webformatURL}"
@@ -15,9 +15,9 @@ export function renderImages(images) {
   <p class="">Views ${image.views}</p>
   <p class="">Comments ${image.comments}</p>
   <p class="">Downloads ${image.downloads}</p>
-</li>
       `;
     })
     .join('');
+  //   gallery.innerHTML('beforeend', markup);
   gallery.insertAdjacentHTML('beforeend', markup);
 }

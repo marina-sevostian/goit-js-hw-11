@@ -1,24 +1,28 @@
 import { fetchImages } from './js/pixabay-api';
 import { renderImages } from './js/render-functions';
 
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
+// import './js/pixabay-api';
+// import './js/render-functions';
 
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 let gallery = document.querySelector('.gallery');
 const fetchImagesBtn = document.querySelector('.search-form-btn');
 let searchFormEl = document.querySelector('.search-form');
+let inputForm = document.querySelector('.search-form-input');
 
-fetchImagesBtn.addEventListener('submit', e => {
+searchFormEl.addEventListener('submit', e => {
   e.preventDefault();
-  const inputValue = input.value.trim();
+  const inputValue = inputForm.value.trim();
   cleanHtml();
   if (inputValue !== '') {
     fetchImages(inputValue)
-      .then(foundImages => {
-        if (foundImages.length === 0) {
+      .then(images => {
+        if (!images.hits) {
           return iziToast.error({
             title: 'Error',
             message: `Sorry, there are no images matching your search query. Please try again!`,
@@ -26,8 +30,9 @@ fetchImagesBtn.addEventListener('submit', e => {
             close: false,
           });
         }
-        renderImages(foundImages);
+        renderImages(images);
         SimpleLightbox.refresh();
+        // gallery.refresh();
       })
       .catch(error => console.log(error));
   }
@@ -41,3 +46,8 @@ function cleanHtml() {
   gallery.innerHTML = '';
 }
 //   searchFormEl.reset();
+// JSON.parse(foundImages);
+
+// let gallery = $('.gallery a').simpleLightbox();
+
+// gallery.refresh();
