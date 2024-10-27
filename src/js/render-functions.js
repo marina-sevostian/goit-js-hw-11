@@ -14,10 +14,10 @@ export function renderImages(images) {
     />
   </a>
   <div class="info">
-  <p class="">Likes ${image.likes}</p>
-  <p class="">Views ${image.views}</p>
-  <p class="">Comments ${image.comments}</p>
-  <p class="">Downloads ${image.downloads}</p>
+  <p class="info-item">Likes <span class="info-item-num">${image.likes}</span></p>
+  <p class="info-item">Views <span class="info-item-num">${image.views}</span></p>
+  <p class="info-item">Comments <span class="info-item-num">${image.comments}</span></p>
+  <p class="info-item">Downloads <span class="info-item-num">${image.downloads}</span></p>
   </div>
      </div> `;
     })
