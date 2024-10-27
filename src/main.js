@@ -49,11 +49,11 @@ function cleanHtml() {
 // function fadeOut() {
 //   setTimeout(loader, 3000);
 // }
-let mask = document.querySelector('.mask');
+// let mask = document.querySelector('.mask');
 
-window.addEventListener('load', () => {
-  mask.classList.add('hide');
-  setTimeout(() => {
-    mask.remove();
-  }, 600);
-});
+// window.addEventListener('load', () => {
+//   mask.classList.add('hide');
+//   setTimeout(() => {
+//     mask.remove();
+//   }, 600);
+// });
