@@ -17,6 +17,7 @@ searchFormEl.addEventListener('submit', e => {
   e.preventDefault();
   const inputValue = inputForm.value.trim();
   cleanHtml();
+  //   loader();
   if (inputValue !== '') {
     fetchImages(inputValue).then(images => {
       if (images.hits.length === 0) {
@@ -30,7 +31,7 @@ searchFormEl.addEventListener('submit', e => {
       renderImages(images.hits);
       gallerySimpleLightbox.refresh();
     });
-
+    // fadeOut();
     searchFormEl.reset();
   }
 });
@@ -42,3 +43,17 @@ new SimpleLightbox('.gallery a', {
 function cleanHtml() {
   gallery.innerHTML = '';
 }
+// function loader() {
+//   document.querySelector('.loader').classList.add('active');
+// }
+// function fadeOut() {
+//   setTimeout(loader, 3000);
+// }
+let mask = document.querySelector('.mask');
+
+window.addEventListener('load', () => {
+  mask.classList.add('hide');
+  setTimeout(() => {
+    mask.remove();
+  }, 600);
+});

@@ -3,7 +3,6 @@ let gallery = document.querySelector('.gallery');
 export function renderImages(images) {
   const markup = images
     .map(image => {
-      console.log('img', image);
       return `<div class="photo">
    <a class="gallery-link" href="${image.largeImageURL}">
     <img
