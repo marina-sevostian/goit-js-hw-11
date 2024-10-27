@@ -30,6 +30,8 @@ searchFormEl.addEventListener('submit', e => {
       renderImages(images.hits);
       gallerySimpleLightbox.refresh();
     });
+
+    searchFormEl.reset();
   }
 });
 
