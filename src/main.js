@@ -43,6 +43,7 @@ new SimpleLightbox('.gallery a', {
 function cleanHtml() {
   gallery.innerHTML = '';
 }
+
 // function loader() {
 //   document.querySelector('.loader').classList.add('active');
 // }
