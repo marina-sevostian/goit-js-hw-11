@@ -12,6 +12,11 @@ export function fetchImages(inputValue) {
       return response.json();
     })
     .catch(error => {
-      console.error(error);
+      iziToast.error({
+        title: 'Error',
+        message: `Error! Sorry, something went wrong. This is an error!`,
+        color: '#ef4040',
+        close: false,
+      });
     });
 }

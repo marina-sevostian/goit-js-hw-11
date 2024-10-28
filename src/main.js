@@ -14,13 +14,13 @@ let inputForm = document.querySelector('.search-form-input');
 let gallerySimpleLightbox = new SimpleLightbox('.gallery a');
 let loader = document.querySelector('.loader');
 
-loader.classList.replace('.loader', '.hide');
+loader.classList.replace('loader', 'hide');
 
 searchFormEl.addEventListener('submit', e => {
   e.preventDefault();
   const inputValue = inputForm.value.trim();
   cleanHtml();
-  loader.classList.replace('.hide', '.loader');
+  loader.classList.replace('hide', 'loader');
   if (inputValue !== '') {
     fetchImages(inputValue).then(images => {
       if (images.hits.length === 0) {
@@ -33,7 +33,7 @@ searchFormEl.addEventListener('submit', e => {
       }
       renderImages(images.hits);
       gallerySimpleLightbox.refresh();
-      loader.classList.replace('.loader', '.hide');
+      loader.classList.replace('loader', 'hide');
     });
     searchFormEl.reset();
   }
