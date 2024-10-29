@@ -1,3 +1,6 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 export function fetchImages(inputValue) {
   return fetch(
     `https://pixabay.com/api/?key=46729875-7729b8e358007a47de817f6d1&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true`
@@ -12,6 +15,7 @@ export function fetchImages(inputValue) {
       return response.json();
     })
     .catch(error => {
+      loader.classList.replace('loader', 'hide');
       iziToast.error({
         title: 'Error',
         message: `Error! Sorry, something went wrong. This is an error!`,

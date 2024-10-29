@@ -36,6 +36,14 @@ searchFormEl.addEventListener('submit', e => {
       loader.classList.replace('loader', 'hide');
     });
     searchFormEl.reset();
+  } else {
+    loader.classList.replace('loader', 'hide');
+    iziToast.warning({
+      title: 'Caution',
+      message: `You forgot important data! Enter something!`,
+      color: '#ffa000',
+      close: false,
+    });
   }
 });
 
