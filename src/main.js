@@ -22,19 +22,29 @@ searchFormEl.addEventListener('submit', e => {
   cleanHtml();
   loader.classList.replace('hide', 'loader');
   if (inputValue !== '') {
-    fetchImages(inputValue).then(images => {
-      if (images.hits.length === 0) {
+    fetchImages(inputValue)
+      .then(images => {
+        if (images.hits.length === 0) {
+          iziToast.error({
+            title: 'Error',
+            message: `Sorry, there are no images matching your search query. Please try again!`,
+            color: '#ef4040',
+            close: false,
+          });
+        }
+        renderImages(images.hits);
+        gallerySimpleLightbox.refresh();
+        loader.classList.replace('loader', 'hide');
+      })
+      .catch(error => {
+        loader.classList.replace('loader', 'hide');
         iziToast.error({
           title: 'Error',
-          message: `Sorry, there are no images matching your search query. Please try again!`,
+          message: `Error! Sorry, something went wrong. This is an error!`,
           color: '#ef4040',
           close: false,
         });
-      }
-      renderImages(images.hits);
-      gallerySimpleLightbox.refresh();
-      loader.classList.replace('loader', 'hide');
-    });
+      });
     searchFormEl.reset();
   } else {
     loader.classList.replace('loader', 'hide');
